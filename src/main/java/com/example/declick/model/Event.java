@@ -6,11 +6,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-public class Task {
-
+public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTask;
+    private Long id;
 
     @Column
     private String titre;
@@ -19,13 +18,13 @@ public class Task {
     private String description;
 
     @Column
-    private String etat;
-
+    private LocalDateTime dateHeure;
 
     @ManyToOne
     @JoinColumn(name = "utilisateur_id")
     private User utilisateur;
 
-    @OneToMany(mappedBy = "task")
+
+    @OneToMany(mappedBy = "event")
     private List<Notification> notifications;
 }

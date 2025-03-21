@@ -20,8 +20,9 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "utilisateur")
-    private List<Task> taches;
+    private List<Event> events;
 
-
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Task> tasks;
 
 }
