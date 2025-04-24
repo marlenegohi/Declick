@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "task")
 public class Task {
 
     @Id
@@ -13,19 +14,19 @@ public class Task {
     private Long idTask;
 
     @Column
-    private String titre;
+    private String title;
 
     @Column
     private String description;
 
     @Column
-    private String etat;
+    private String state;
 
 
     @ManyToOne
-    @JoinColumn(name = "utilisateur_id")
-    private User utilisateur;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @OneToMany(mappedBy = "task")
-    private List<Notification> notifications;
+    private List<Planning> plannings;
 }

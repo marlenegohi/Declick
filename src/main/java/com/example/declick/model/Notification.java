@@ -1,31 +1,22 @@
 package com.example.declick.model;
-
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "notification")
 public class Notification {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
     private String message;
 
-    @Column
-    private LocalDateTime dateHeure;
+    private LocalDateTime sendDateTime;
 
     @ManyToOne
-    @JoinColumn(name = "task_id", nullable = true)
-    private Task task;
+    @JoinColumn(name = "planning_id")
+    private Planning planning;
 
-    @ManyToOne
-    @JoinColumn(name = "event_id", nullable = true)
-    private Event event;
-
-    @ManyToOne
-    @JoinColumn(name = "utilisateur_id", nullable = false)
-    private User utilisateur;
-
+    // Getters and setters
 }

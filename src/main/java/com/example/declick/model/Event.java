@@ -6,25 +6,26 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "event")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String titre;
+    private String title;
 
     @Column
     private String description;
 
     @Column
-    private LocalDateTime dateHeure;
+    private LocalDateTime plannedDateTime;
 
     @ManyToOne
-    @JoinColumn(name = "utilisateur_id")
-    private User utilisateur;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
     @OneToMany(mappedBy = "event")
-    private List<Notification> notifications;
+    private List<Planning> plannings;
 }

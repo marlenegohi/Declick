@@ -7,22 +7,22 @@ import com.example.declick.model.Task;
 import java.util.List;
 
 @Entity
-@Table(name = "utilisateur")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String nom;
+    private String name;
 
     @Column
     private String email;
 
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "user")
     private List<Event> events;
 
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "user")
     private List<Task> tasks;
 
 }

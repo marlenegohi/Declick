@@ -3,6 +3,7 @@ package com.example.declick.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "userCredential")
 class UserCredential {
 
     @Id
@@ -16,7 +17,7 @@ class UserCredential {
 
     @OneToOne
     @JoinColumn(name = "id")
-    private User utilisateur;
+    private User user;
 
     // Getters and Setters
 }
